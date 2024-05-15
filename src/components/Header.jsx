@@ -4,16 +4,12 @@ import { CiHeart, CiHospital1 } from "react-icons/ci";
 import { IoBagOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import { productContext } from "../context/ContextStore";
-import { useAuth0 } from "@auth0/auth0-react";
-import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   const { bagItems, searchInputVal, setSearchInputVal } = useContext(
     productContext
   );
-  const { isAuthenticated, user } = useAuth0();
-  console.log(user);
-
+  
   return (
     <nav className="flex justify-between gap-3 px-10 py-3 items-center shadow-sm hover:shadow-md">
       <Link to="/">
@@ -79,11 +75,11 @@ const Header = () => {
             )}
           </Link>
         </div>
-        <div className="flex items-center flex-col">
+        {/* <div className="flex items-center flex-col">
           <CgProfile className="text-base" />
           <h6> {user.name}</h6>
         </div>
-        {isAuthenticated && <LogoutButton />}
+        {isAuthenticated && <LogoutButton />} */}
       </div>
     </nav>
   );
